@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <title>バイトで月１０万円稼ぐには？</title>
+   
+</head>
+
+
+<body>
+
+    <div>
+        <h1>一体、人が月に１０万円稼ぐには時給いくらで何時間働けばいいのだろうか？</h1>
+        <h2>我々は、その悩みを解消すべく、簡単に計算できるプログラムを作ることにした。</h2>
+    </div>
+    
+    <div>
+        <form>
+             <label>時給</label>
+            <input type="text" id="wage"></br>
+   
+    
+    <input type="button" value="計算！" onclick="calculate()"></br></br>
+           
+    
+    <span id="result">結果がここに出ます</span>
+        </form>
+        
+    </div>
+
+<script>
+    //計算まではうまくいくが、keisan_kekkaがNaNになってしまう
+    //→原因がわかった。document.getElementByIDだけだと、要素をすべて取得する、typeとかidとかもろもろ。なのでそもそも計算できない値を持ってきてしまう
+    
+    //解決策としては、document.getElemenByID("変数名").valueとすること。これを忘れてた。とてもよくなかった。
+
+    function calculate(){
+   var num1 = 100000;
+    var wage = document.getElementById("wage").value;
+    var wage_int = parseInt( wage );
+    var keisan_kekka = num1 / wage_int;
+        var output = `その時給ですと、あなたは月に ${keisan_kekka} 時間働く必要があります`;
+      result.innerHTML = output;
+    
+    }
+</script>
+
+</body>
+</html>
