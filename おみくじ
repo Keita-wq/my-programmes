@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+    <meta charset="UTF-8">
+    <title>mission4-3</title>
+</head>
+<body>あなたの運勢は
+        <div id="omikuji">ここに表示</div>です
+
+<script>
+    var omikuji = new Array("大吉","中吉","小吉");
+    
+   
+    unsei = Math.random()*3;
+    message= (omikuji[Math.floor(unsei)]);
+        
+   var object =document.getElementById("omikuji");
+    object.innerText = message;
+</script>
+</body>
+</html>
