@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+    <title>月給から時給を割り出す</title>
+   
+</head>
+
+
+<body>
+
+    <div>
+        <h1>社会人の給料は月給という形で示される</h1>
+        <h2>・・・しかし、これでは1時間あたりどれくらいの時給が発生しているのか、わかりづらい</br>そこで、月給と1月の勤務日数・基本勤務時間を入力することで実質時給を算出できるようにした。</h2>
+    </div>
+    
+    <div>
+        <form>
+             <p style="font-size: 26px;">①月給を入力してください</p></br>
+            月給<input type="text" id="wage_month">円（半角で入力してください）</br>
+        
+        <p>ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー</p>
+    <p style="font-size: 26px;">②働き方を選択してください</p></br>    
+    <p>週休2日</p>
+        <input type="radio" value="はい">はい
+         <input type="radio" value="いいえ">いいえ</br>
+    
+    <select size="1" name="sample">
+        <option value="normal">9時〜5時</option>
+        <option value="night">夜勤</option>
+            <option valie="others">それ以外</option>
+    </select></br>
+    <input type="button" value="計算！" onclick="calculate()"></br></br>
+           
+    
+    <span id="result" style="font-size: 35px;">結果がここに出ます</span>
+        </form>
+        
+    </div>
+
+<script>
+    //一旦月給入力された額をすべて８時間勤務*20日間として計算する。のちのちチェックボックスで選んだ項目に応じて別の内容を出力するよう実装する予定。
+    //◯次のプラン：リンクを張って有名企業の新卒年収一覧を表示できるようにする。→manaのデザイン本を参考にリンクを貼る　あとは１日の労働時間が長すぎる場合には「働きすぎでは？」と表示できるようにする
+    function calculate(){
+    var wage_month = document.getElementById("wage_month").value;
+    /*時給を計算する変数を設定（⑧時間勤務の場合）*/
+        var hour = 8;
+        var workday_in_a_month =20;
+        var jikyu_in_fact = wage_month / (hour*workday_in_a_month) ;
+        var output = `その月給でその働き方ですと、あなたの実質時給は ${jikyu_in_fact} 円になります。`
+      result.innerHTML = output;
+    
+    }
+</script>
+
+</body>
+</html>
