@@ -8,9 +8,10 @@
         <div id="omikuji">ここに表示</div>です
 
 <script>
+    //配列にそれぞれの運勢をいれる
     var omikuji = new Array("大吉","中吉","小吉");
     
-   
+   //3をかけて、乱数を０〜２になるようにして、配列omikuji[0~2]のどれかをランダムで指定させる
     unsei = Math.random()*3;
     message= (omikuji[Math.floor(unsei)]);
         
